@@ -8,15 +8,12 @@ metadata:
 
 # 容器基础配置
 container:
-  name: "ros-lt"
+  name: "ros-tele-test"
   image:
     source: "pull"
-    repository: "dockerhub.cn-northwest-4.ksyunkcr.com/psibot/osrf/ros"
-    tag: "humble-desktop-full"
+    repository: "dockerhub.cn-northwest-4.ksyunkcr.com/psibot/ros-x86"
+    tag: "humble"
   
-  # 执行模式配置
-  # exec_mode: "command"
-  # command: "source /ros_entrypoint.sh && source /opt/psi/rt/a2d-tele/install/setup.bash && ros2 launch scripts_pack start_gui.launch.py"
   exec_mode: "interactive"
   command: "bash"
 
@@ -30,9 +27,9 @@ resources:
 
 # 挂载点配置
 volumes:
-  - source: "/home/descfly/workspace_litang/ws"
+  - source: "/media/psf/Downloads/a2d-tele"
     target: "/root/workspace"
-    enabled: false
+    enabled: true
     options: "rw"
   
   - source: "/home/descfly/workspace_litang/docker/lib/a2d_sdk_v1_5_0"
@@ -81,26 +78,26 @@ devices:
   
   # PSI 手套串口设备配置
   - name: "psi_glove_left"
-    enabled: true
+    enabled: false
     usb_vendor: "0483"
     usb_product: "5739"
     container_path: "/dev/psi_glove_left"
   
   - name: "psi_glove_right"
-    enabled: true
+    enabled: false
     usb_vendor: "0483"
     usb_product: "5740"
     container_path: "/dev/psi_glove_right"
   
   - name: "ry_hand_left"
-    enabled: true
+    enabled: false
     usb_vendor: "1a86"
     usb_product: "55d5"
     usb_interface: "00"
     container_path: "/dev/ry_hand_left"
   
   - name: "ry_hand_right"
-    enabled: true
+    enabled: false
     usb_vendor: "1a86"
     usb_product: "55d5"
     usb_interface: "02"

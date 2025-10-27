@@ -8,10 +8,10 @@ metadata:
 
 # 容器基础配置
 container:
-  name: "ros-0.8rc"
+  name: "dev-lt"
   image:
     source: "pull"
-    repository: "dockerhub.cn-northwest-4.ksyunkcr.com/psibot/a2d-tele/x86/feature/hands-calibration"
+    repository: "dockerhub.cn-northwest-4.ksyunkcr.com/psibot/a2d-tele/x86/release/0.8.1"
     tag: "latest"
   
   # 执行模式配置
